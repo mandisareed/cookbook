@@ -23,6 +23,7 @@ body {
   padding-bottom: 0%;
   border-radius: 25%;
 }
+
 form.signup,
 form.login {
   margin-top: 50px;
@@ -30,4 +31,8 @@ form.login {
 .btn {
   display: flex;
   padding-top: 5px;
+}
+
+.nav-link {
+  color: black;
 }
