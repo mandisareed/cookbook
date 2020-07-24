@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 //const express = require("express");
 
 $("#submit").on("click", (event) => {

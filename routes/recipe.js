@@ -1,8 +1,10 @@
+/* eslint-disable prettier/prettier */
 const axios = require("axios");
-const express = require("express");
+//const express = require("express");
 //const router = express.Router();
 
 module.exports = (app) => {
+  // eslint-disable-next-line no-unused-vars
   app.get("/search", (req, res) => {
     const query = req.query.query;
     console.log(query);
