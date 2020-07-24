@@ -1,0 +1,22 @@
+body{
+  background-color: white;
+  font-family: 'Nunito', sans-serif; Arial, Helvetica, sans-serif;
+
+}
+.navigation{
+  background-image: linear-gradient(90deg, #fc8b56, #fcbd56);
+
+}
+.pageName{
+  display: block;
+  background-image: linear-gradient(90deg, #fc8b56, #fcbd56);
+  margin-bottom: 0;
+}
+.navItems{
+margin-top: 0;
+justify-content: space-evenly;
+}
+.btn{
+  background-color: white;
+  border: #fc8b56;
+}
