@@ -3,7 +3,7 @@ body{
   font-family: 'Nunito', sans-serif; Arial, Helvetica, sans-serif;
 
 }
-.navigation{
+.navbar{
   background-image: linear-gradient(90deg, #fc8b56, #fcbd56);
 
 }
@@ -16,7 +16,8 @@ li{
 color:white;
 font-weight: 700;
 }
-.btn{
-  background-color: white;
-  border: #fc8b56;
+
+.searchBtn{
+  color: white;
+  background-color: #fc8b56;
 }
