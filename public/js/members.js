@@ -18,9 +18,9 @@ $(document).ready(() => {
           var recipe = $("<div>");
           recipe.attr("data-id", hits[i].recipe.uri);
           recipe.html(`
-            <div class="card" style="width: 18rem;">
-              <img src="${hits[i].recipe.image}" class="card-img-left" alt="...">
-              <div class="card-body">
+            <div class="card">
+              <div class="card-body flex-row">
+                <img class="card-image" src="${hits[i].recipe.image}">
                 <p class="card-text">${hits[i].recipe.label}</p>
               </div>
             </div>
