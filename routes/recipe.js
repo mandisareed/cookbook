@@ -5,7 +5,7 @@ const axios = require("axios");
 
 module.exports = (app) => {
   // eslint-disable-next-line no-unused-vars
-  app.get("/search", (req, res) => {
+  app.get("/members", (req, res) => {
     const query = req.query.query;
     console.log(query);
     const config = { headers: { accept: "application/json" } };
