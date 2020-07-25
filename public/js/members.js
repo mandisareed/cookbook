@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
@@ -10,7 +11,7 @@ $(document).ready(() => {
 
     $.get(
       `https://api.edamam.com/search?q=${searchQuery}&app_id=${appId}&app_key=${appKey}`,
-      response => {
+      (response) => {
         $("#results").empty();
         console.log("response", response);
         const hits = response.hits;
@@ -19,21 +20,43 @@ $(document).ready(() => {
           `<div class="font-weight-bold">Results: ${hits.length}</div>`
         );
 
-        for (let i = 0; i < hits.length; i++) {
+        hits.forEach((hit) => {
           const recipe = $("<div>");
-          recipe.attr("data-id", hits[i].recipe.uri);
+
+          const dietLabels = $("<div>");
+
+          hit.recipe.dietLabels.forEach((dietLabel) => {
+            dietLabels.append(
+              `<span class="badge badge-warning">${dietLabel}</span>`
+            );
+          });
+
           recipe.html(`
             <div class="card">
               <div class="card-body">
-                <img class="card-image" src="${hits[i].recipe.image}">
-                <div></div>
-                  <div class="card-text">${hits[i].recipe.label}</div>
+                <img class="card-image" src="${hit.recipe.image}">
+                <div class="card-text recipe-name">${hit.recipe.label}</div>
+                <div class="diet-labels">${dietLabels.html()}</div>
+                <div class="time">
+                  <span class="dot"></span>
+                  ${hit.recipe.totalTime} minutes
                 </div>
+                <button id="saveBtn" class="btn btn-secondary" data-id="${hit.recipe.uri}"><i class="fa fa-plus"></i></button>
               </div>
             </div>
           `);
           $("#results").append(recipe);
-        }
+        });
+        $("#saveBtn").on("click", function() {
+          const recipeUri = $(this).data("id");
+          $.post("/api/saveRecipe", {
+            recipeUri: recipeUri
+          }).then(() => {
+            alert("Recipe Saved!");
+          }).catch(() => {
+            alert("Recipe was not saved!");
+          });
+        });
       }
     );
   });

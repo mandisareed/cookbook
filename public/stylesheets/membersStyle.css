@@ -16,10 +16,10 @@ body{
   margin-bottom: 0;
 }
 .search{
-color:white !important;
-font-weight: 800;
-font-size: 2em;
-text-align: center;
+  color:white !important;
+  font-weight: 900;
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .searchBtn{
@@ -35,6 +35,36 @@ text-align: center;
   float: left;
 }
 
+.recipe-name{
+font-family: 'Nunito', Arial, Helvetica, sans-serif;
+text-align: center;
+font-weight: 800;
+font-size: 1.5em;
+}
+
+.diet-labels{
+  text-align: center;
+}
+
+.diet-labels span {
+  margin: 0 5px;
+}
+
+.time{
+  font-size: 1em;
+  font-weight: 900;
+  text-align: center;
+}
+
+.dot {
+  height: 8px;
+  width: 8px;
+  background-color: #fc8b56;
+  border-radius: 50%;
+  margin-right: 5px;
+  display: inline-block;
+}
+
 @media (min-width: 992px) {
   .desktop {
     display: block;
@@ -42,5 +72,9 @@ text-align: center;
 
   .mobile {
     display: none;
+  }
+
+  .search{
+    font-size: 2em;
   }
 }
