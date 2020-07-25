@@ -11,17 +11,22 @@ $(document).ready(() => {
     $.get(
       `https://api.edamam.com/search?q=${searchQuery}&app_id=${appId}&app_key=${appKey}`,
       function(response) {
+        $("#results").empty();
         console.log("response", response);
         var hits = response.hits;
+        
+        $("#results").append(`<div class="font-weight-bold">Results: ${hits.length}</div>`);
 
         for (var i = 0; i < hits.length; i++) {
           var recipe = $("<div>");
           recipe.attr("data-id", hits[i].recipe.uri);
           recipe.html(`
             <div class="card">
-              <div class="card-body flex-row">
+              <div class="card-body">
                 <img class="card-image" src="${hits[i].recipe.image}">
-                <p class="card-text">${hits[i].recipe.label}</p>
+                <div>
+                  <div class="card-text">${hits[i].recipe.label}</div>
+                </div>
               </div>
             </div>
           `);
