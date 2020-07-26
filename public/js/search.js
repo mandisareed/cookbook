@@ -26,7 +26,6 @@ $("#submit").on("click", (event) => {
   // });
 });
 
-
 //i don't think a delete function is needed in this file, as it's in the saved.handlebards file
 
 //delete function to delete a saved recipe
