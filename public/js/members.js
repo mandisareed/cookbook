@@ -2,6 +2,7 @@
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
+
   const searchBtn = $(".searchBtn");
 
   searchBtn.on("click", () => {
@@ -31,6 +32,23 @@ $(document).ready(() => {
             );
           });
 
+          const ingredientList = $("<div>");
+
+          hit.recipe.ingredients.forEach((ingredient) => {
+            ingredientList.append(
+              `<div class="ingredient">
+              <img class="ingredient-image" src="${ingredient.image}"/>
+              <span>${ingredient.text}</span>
+              </div>`
+            );
+          });
+
+          $("img").on("error", function() {
+            $(this).css("visibility", "hidden");
+            $(this).css("width", "50px");
+            $(this).css("height", "50px");
+          });
+
           recipe.html(`
             <div class="card">
               <div class="card-body">
@@ -41,13 +59,26 @@ $(document).ready(() => {
                   <span class="dot"></span>
                   ${hit.recipe.totalTime} minutes
                 </div>
-                <button id="saveBtn" class="btn btn-secondary" data-id="${hit.recipe.uri}"><i class="fa fa-plus"></i></button>
+                <div class="actions">
+                  <button class="btn btn-warning showRecipe">Show Recipe</button>
+                  <button class="btn btn-secondary saveBtn" data-id="${hit.recipe.uri}"><i class="fa fa-plus"></i></button>
+                </div>
+                <div class="recipe-link"><a href=${hit.recipe.url} target="_blank">Link to Recipe</a></div>
+                <div class="recipe-information">
+                  <div class="ingredient-list">
+                    ${ingredientList.html()}
+                  </div>
+                </div>
               </div>
             </div>
           `);
           $("#results").append(recipe);
         });
-        $("#saveBtn").on("click", function() {
+        $(".showRecipe").on("click", function() {
+          const recipeInfo = $(this).parent().siblings(".recipe-information");
+          recipeInfo.css("display", "block");
+        });
+        $(".saveBtn").on("click", function() {
           const recipeUri = $(this).data("id");
           $.post("/api/saveRecipe", {
             recipeUri: recipeUri
