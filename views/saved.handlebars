@@ -1,0 +1,70 @@
+<div class="orangeBackground">
+  <div class="topTitle search desktop">Search for a Recipe</div>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#"><img class="avatar" src="./img/avatar.svg" height="40px"/></a>
+    <div class="search mobile">Search for a Recipe</div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Saved <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<div class="container">
+  <div class="row mt-2">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="input-group mb-3">
+        <input id='searchInput' type="text" class="form-control" placeholder="Search Recipes" aria-label="Search Recipes">
+        <div class="input-group-append">
+          <button class="btn input-group-text searchBtn" id="basic-addon2"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="results"></div>
+</div>
+
+
+<h1>Saved Recipes</h1>
+
+
+<ul>
+  {{#each recipes}}
+  	<li>
+  	   <p>{{this.id}} {{this.recipe}}
+            <button recipe-recipeid="{{this.id}}" class="delete-recipe">Delete</button>
+
+         </p>
+  	</li>
+  {{/each}}
+</ul>
+
+<script type="text/javascript">
+  $(".delete-recipe").on("click", function(event) {
+    // Get the ID from the button.
+    // This is shorthand for $(this).attr("")
+    var id = $(this).data("recipeid");
+
+    // Send the DELETE request.
+    //what goes in between the forward slashes: recipe? saved?
+    $.ajax("/api//" + id, {
+      type: "DELETE"
+    }).then(
+      function() {
+        console.log("deleted id ", id);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
