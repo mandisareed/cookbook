@@ -53,7 +53,7 @@ $(document).ready(() => {
             <div class="card">
               <div class="card-body">
                 <img class="card-image" src="${hit.recipe.image}">
-                <div class="card-text recipe-name">${hit.recipe.label}</div>
+                <div class="card-text recipe-name" >${hit.recipe.label}</div>
                 <div class="diet-labels">${dietLabels.html()}</div>
                 <div class="time">
                   <span class="dot"></span>
@@ -61,9 +61,17 @@ $(document).ready(() => {
                 </div>
                 <div class="actions">
                   <button class="btn btn-warning showRecipe">Show Recipe</button>
-                  <button class="btn btn-secondary saveBtn" data-id="${hit.recipe.uri}"><i class="fa fa-plus"></i></button>
+                  <button class="btn btn-secondary saveBtn" data-id="${
+                    hit.recipe.uri
+                  }" data-label="${hit.recipe.label}" data-image="${
+            hit.recipe.image
+          }" data-time="${
+            hit.recipe.totalTime
+          }"><i class="fa fa-plus"></i></button>
                 </div>
-                <div class="recipe-link"><a href=${hit.recipe.url} target="_blank">Link to Recipe</a></div>
+                <div class="recipe-link"><a href=${
+                  hit.recipe.url
+                } target="_blank">Link to Recipe</a></div>
                 <div class="recipe-information">
                   <div class="ingredient-list">
                     ${ingredientList.html()}
@@ -75,18 +83,32 @@ $(document).ready(() => {
           $("#results").append(recipe);
         });
         $(".showRecipe").on("click", function() {
-          const recipeInfo = $(this).parent().siblings(".recipe-information");
+          const recipeInfo = $(this)
+            .parent()
+            .siblings(".recipe-information");
           recipeInfo.css("display", "block");
         });
         $(".saveBtn").on("click", function() {
           const recipeUri = $(this).data("id");
+          const recipeLabel = $(this).data("label");
+          const recipeImage = $(this).data("image");
+          const recipeTime = $(this).data("time");
+          console.log(recipeUri);
+          console.log(recipeLabel);
+          console.log(recipeImage);
+          console.log(recipeTime);
           $.post("/api/saveRecipe", {
-            recipeUri: recipeUri
-          }).then(() => {
-            alert("Recipe Saved!");
-          }).catch(() => {
-            alert("Recipe was not saved!");
-          });
+            recipeUri: recipeUri,
+            RecipeLabel: recipeLabel,
+            Image: recipeImage,
+            PrepTime: recipeTime,
+          })
+            .then(() => {
+              alert("Recipe Saved!");
+            })
+            .catch(() => {
+              alert("Recipe was not saved!");
+            });
         });
       }
     );

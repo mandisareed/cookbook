@@ -4,25 +4,24 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
-      }
+        len: [1],
+      },
     },
     Image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     PrepTime: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1]
-      }
-    }
+        len: [1],
+      },
+    },
   });
   SavedRecipe.associate = function(models) {
     SavedRecipe.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
+      foreignKey: "UserId",
+      targetKey: "id",
     });
   };
   return SavedRecipe;
