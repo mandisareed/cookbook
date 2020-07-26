@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 module.exports = function(sequelize, DataTypes) {
   const SavedRecipe = sequelize.define("SavedRecipe", {
     RecipeLabel: {
