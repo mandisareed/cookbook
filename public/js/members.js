@@ -53,7 +53,7 @@ $(document).ready(() => {
             <div class="card">
               <div class="card-body">
                 <img class="card-image" src="${hit.recipe.image}">
-                <div class="card-text recipe-name" >${hit.recipe.label}</div>
+                <div class="card-text recipe-name" >${hit.recipe.label.toUpperCase()}</div>
                 <div class="diet-labels">${dietLabels.html()}</div>
                 <div class="time">
                   <span class="dot"></span>
@@ -87,7 +87,14 @@ $(document).ready(() => {
           const recipeInfo = $(this)
             .parent()
             .siblings(".recipe-information");
-          recipeInfo.css("display", "block");
+
+          if ($(this).text() === "Show Recipe") {
+            recipeInfo.slideDown();
+            $(this).text("Hide Recipe");
+          } else {
+            recipeInfo.slideUp();
+            $(this).text("Show Recipe");
+          }
         });
         $(".saveBtn").on("click", function() {
           const recipeUri = $(this).data("id");
