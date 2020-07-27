@@ -34,7 +34,7 @@ module.exports = function(sequelize, DataTypes) {
   });
   User.associate = function(models) {
     User.hasMany(models.SavedRecipe, {
-      foreignKey: "UserId",
+      foreignKey: "User_id",
       sourceKey: "id",
       onDelete: "cascade",
     });
