@@ -73,4 +73,16 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+  app.get("/api/saveRecipe", (req, res) => {
+    db.SavedRecipe.findAll({})
+      .then((dbRecipe) => {
+        res.json(dbRecipe);
+        console.log("looking at db");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json(err);
+      });
+  });
 };

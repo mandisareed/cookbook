@@ -1,3 +1,4 @@
+require("dotenv").config();
 // Requiring necessary npm packages
 const express = require("express");
 const exphbs = require("express-handlebars");
@@ -14,10 +15,18 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
-// We need to use sessions to keep track of our user's login status
+//We need to use sessions to keep track of our user's login status
 app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+  session({
+    secret: process.env.SERVER_SECRET,
+    resave: true,
+    // eslint-disable-next-line prettier/prettier
+    saveUninitialized: true,
+  })
 );
+// app.use(
+//   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+// );
 app.use(passport.initialize());
 app.use(passport.session());
 
