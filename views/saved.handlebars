@@ -15,7 +15,7 @@
           <a class="nav-link" href="#">Saved <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="../public/login.html">Logout</a>
         </li>
       </ul>
     </div>
@@ -58,7 +58,7 @@
 
     // Send the DELETE request.
     //what goes in between the forward slashes: recipe? saved?
-    $.ajax("/api//" + id, {
+    $.ajax("/api/saveRecipe/" + id, {
       type: "DELETE"
     }).then(
       function() {
