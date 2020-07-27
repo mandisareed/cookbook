@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       },
     },
     Image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     PrepTime: {
       type: DataTypes.STRING,
@@ -21,8 +21,7 @@ module.exports = function(sequelize, DataTypes) {
   });
   SavedRecipe.associate = function(models) {
     SavedRecipe.belongsTo(models.User, {
-      foreignKey: "UserId",
-      targetKey: "id",
+      onDelete: "cascade",
     });
   };
   return SavedRecipe;
