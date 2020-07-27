@@ -7,16 +7,33 @@ body {
 }
 .h2 {
   font-family: "Nunito", Arial, Helvetica, sans-serif;
-  color: white;
-  font-size: 112px;
+  color: black;
+  font-size: 1em;
   text-align: center;
   padding-left: 5%;
 }
 
-.container {
-  justify-content: center;
-  padding-left: 20%;
+.title{
+  color:white;
+  font-size: 3em;
+  padding-left: 4px;
+
 }
+.title span{
+  font-weight: 700;
+}
+
 a:visited {
   color: white;
+}
+
+
+/*Media Queries*/
+@media (min-width: 992px) {
+
+   .title{
+    text-align: center;
+    font-size: 9em;
+    
+  }
 }
