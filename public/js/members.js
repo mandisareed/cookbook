@@ -109,7 +109,7 @@ $(document).ready(() => {
           console.log(recipeTime);
           // console.log(UserId);
           $.post("/api/saveRecipe", {
-            recipeUri: recipeUri,
+            RecipeUri: recipeUri,
             RecipeLabel: recipeLabel,
             Image: recipeImage,
             PrepTime: recipeTime,

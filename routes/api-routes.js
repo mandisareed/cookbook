@@ -64,6 +64,7 @@ module.exports = function(app) {
     // console.log(req.body.recipeImage);
     // console.log(req.body.recipeTime);
     db.SavedRecipe.create({
+      RecipeUri: req.body.RecipeUri,
       RecipeLabel: req.body.RecipeLabel,
       Image: req.body.Image,
       PrepTime: req.body.PrepTime,
