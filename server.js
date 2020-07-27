@@ -20,6 +20,7 @@ app.use(
   session({
     secret: process.env.SERVER_SECRET,
     resave: true,
+    // eslint-disable-next-line prettier/prettier
     saveUninitialized: true,
   })
 );
