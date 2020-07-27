@@ -1,9 +1,10 @@
 <div class="orangeBackground">
   <div class="topTitle search desktop">Search for a Recipe</div>
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#"><img class="avatar" src="./img/avatar.svg" height="40px"/></a>
+    <a class="navbar-brand" href="#"><img class="avatar" src="./img/avatar.svg" height="40px" /></a>
     <div class="search mobile">Search for a Recipe</div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
+      aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarToggler">
@@ -21,50 +22,55 @@
     </div>
   </nav>
 </div>
+
 <div class="container">
-  <div class="row mt-2">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="input-group mb-3">
-        <input id='searchInput' type="text" class="form-control" placeholder="Search Recipes" aria-label="Search Recipes">
-        <div class="input-group-append">
-          <button class="btn input-group-text searchBtn" id="basic-addon2"><i class="fa fa-search"></i></button>
+  <div id="savedRecipes">
+    {{#each recipes}}
+    <div class="card">
+      <div class="card-body">
+        <img class="card-image" src="{{this.image}}">
+        <div class="card-text recipe-name">{{this.label}}</div>
+        <div class="diet-labels">
+          {{#each this.dietLabels}}
+            <span class="badge badge-warning">{{this}}<Label}</span>`
+          {{/each}}
+        </div>
+        <div class="time">
+          <span class="dot"></span>
+          {{this.totalTime}} minutes
+        </div>
+        <div class="actions">
+          <button class="btn btn-warning showRecipe">Show Recipe</button>
+          <button class="btn btn-secondary saveBtn" data-id="{{this.id}}">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+        <div class="recipe-link">
+          <a href={{this.url}} target="_blank">Link to Recipe</a>
+        </div>
+        <div class="recipe-information">
+          <div class="ingredient-list">
+            {{#each this.ingredients}}
+            `<div class="ingredient">
+              <img class="ingredient-image" src="{{this.image}}"/>
+              <span>{{this.text}}</span>
+            </div>`
+          {{/each}}
+          </div>
         </div>
       </div>
     </div>
+    {{/each}}
   </div>
-  <div id="results"></div>
 </div>
 
-
-<h1>Saved Recipes</h1>
-
-
-<ul>
-  {{#each recipes}}
-  	<li>
-  	   <p>{{this.id}} {{this.recipe}}
-            <button recipe-recipeid="{{this.id}}" class="delete-recipe">Delete</button>
-
-         </p>
-  	</li>
-  {{/each}}
-</ul>
-
 <script type="text/javascript">
-  $(".delete-recipe").on("click", function(event) {
-    // Get the ID from the button.
-    // This is shorthand for $(this).attr("")
-    var id = $(this).data("recipeid");
-
-    // Send the DELETE request.
-    //what goes in between the forward slashes: recipe? saved?
-    $.ajax("/api//" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+  $(document).ready(() => {
+    $("img").on("error", function() {
+      $(this).css("visibility", "hidden");
+      $(this).css("width", "50px");
+      $(this).css("height", "50px");
+    });
   });
+
+</script>
