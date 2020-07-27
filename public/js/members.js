@@ -66,6 +66,7 @@ $(document).ready(() => {
                   data-label="${hit.recipe.label}" 
                   data-image="${hit.recipe.image}" 
                   data-time="${hit.recipe.totalTime}">
+                  
                   <i class="fa fa-plus"></i>
                   </button>
                 </div>
@@ -101,15 +102,18 @@ $(document).ready(() => {
           const recipeLabel = $(this).data("label");
           const recipeImage = $(this).data("image");
           const recipeTime = $(this).data("time");
+          //const UserId = $(this).data("user");
           console.log(recipeUri);
           console.log(recipeLabel);
           console.log(recipeImage);
           console.log(recipeTime);
+          // console.log(UserId);
           $.post("/api/saveRecipe", {
             recipeUri: recipeUri,
             RecipeLabel: recipeLabel,
             Image: recipeImage,
             PrepTime: recipeTime,
+            // UserId: UserId,
           })
             .then(() => {
               alert("Recipe Saved!");
