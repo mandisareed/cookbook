@@ -18,7 +18,7 @@ app.use(express.static("public"));
 //We need to use sessions to keep track of our user's login status
 app.use(
   session({
-    secret: process.env.SERVER_SECRET,
+    secret: "keyboard cat",
     resave: true,
     // eslint-disable-next-line prettier/prettier
     saveUninitialized: true,
