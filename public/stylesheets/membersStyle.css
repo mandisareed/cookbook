@@ -38,6 +38,7 @@ body{
 
 .recipe-name{
 font-family: 'Nunito', Arial, Helvetica, sans-serif;
+text-transform: capitalize;
 text-align: center;
 font-weight: 800;
 font-size: 1.5em;

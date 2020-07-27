@@ -19,6 +19,8 @@ $("#submit").on("click", (event) => {
     //location.reload();
   });
 
+
+
   // $.post("/api/recipe", newQuery).then((data) => {
   //   console.log(data);
 
@@ -26,7 +28,7 @@ $("#submit").on("click", (event) => {
   // });
 });
 
-//i don't think a delete function is needed in this file, as it's in the saved.handlebards file
+//i don't think a delete function is needed in this file, as it's in the saved.handlebars file
 
 //delete function to delete a saved recipe
 //not sure which of this two functions is more in the right direction:
