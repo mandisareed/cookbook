@@ -34,7 +34,7 @@ module.exports = function(app) {
   // Route for logging user out
   app.get("/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.redirect("/login");
   });
 
   // Route for getting some data about our user to be used client side
@@ -55,14 +55,20 @@ module.exports = function(app) {
   //route for saving recipes
   app.post("/api/saveRecipe", (req, res) => {
     console.log(req.body);
+    console.log(req.user);
+    if (!req.user) {
+      return res.status(401).end();
+    }
     // console.log(req.body.recipeUri);
     // console.log(req.body.recipeLabel);
     // console.log(req.body.recipeImage);
     // console.log(req.body.recipeTime);
     db.SavedRecipe.create({
+      RecipeUri: req.body.RecipeUri,
       RecipeLabel: req.body.RecipeLabel,
       Image: req.body.Image,
       PrepTime: req.body.PrepTime,
+      UserId: req.user.id,
     })
       .then((dbRecipe) => {
         res.json(dbRecipe);
@@ -75,7 +81,14 @@ module.exports = function(app) {
   });
 
   app.get("/api/saveRecipe", (req, res) => {
-    db.SavedRecipe.findAll({})
+    if (!req.user.id) {
+      return res.status(401).end();
+    }
+    db.SavedRecipe.findAll({
+      where: {
+        UserId: req.user.id,
+      },
+    })
       .then((dbRecipe) => {
         res.json(dbRecipe);
         console.log("looking at db");
