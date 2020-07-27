@@ -13,7 +13,7 @@ module.exports = (app) => {
       .get(
         "https://api.edamam.com/search?q=" +
           query +
-          "&app_id=dd153d3f&app_key=e1ba59a8ca84e648a5c86dbbda76b663",
+          "&app_id=" + (process.env.APP_ID) + "&app_key=" + (process.env.APP_KEY),
         //"https://api.edamam.com/search?q=chicken&app_id=dd153d3f&app_key=e1ba59a8ca84e648a5c86dbbda76b663",
         config
       )
