@@ -7,7 +7,7 @@ body {
 }
 
 .title {
-  font-family: Nunito, Arial, Helvetica, sans-serif;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
   color: white;
   font-size: 3em;
   padding: 5px;
@@ -36,10 +36,6 @@ form.login {
 }
 
 @media (min-width: 992px) {
-  .desktop {
-    display: block;
-  }
-
   .title{
     font-size: 9em;
   }
