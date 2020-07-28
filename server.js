@@ -1,4 +1,3 @@
-require("dotenv").config();
 // Requiring necessary npm packages
 const express = require("express");
 const exphbs = require("express-handlebars");
@@ -24,9 +23,7 @@ app.use(
     saveUninitialized: true,
   })
 );
-// app.use(
-//   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-// );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
