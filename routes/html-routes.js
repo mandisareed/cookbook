@@ -30,7 +30,7 @@ module.exports = function(app) {
 
   app.get("/saved", isAuthenticated, (req, res) => {
     axios
-      .get(`http://localhost:8080/api/saveRecipe/${req.user.id}`)
+      .get(`/api/saveRecipe/${req.user.id}`)
       .then(response => {
         console.log(response.data);
         res.render("saved", {
