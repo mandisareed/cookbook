@@ -120,17 +120,19 @@ $(document).ready(() => {
     );
   });
 
-  $(".deleteBtn").on("click", function () {
-    const recipeId = $(this).data('id');
+  $(".deleteBtn").on("click", function() {
+    const recipeId = $(this).data("id");
 
     $.ajax({
       url: `/api/saveRecipe/${recipeId}`,
-      method: "DELETE"
-    }).then((response) => {
-      alert("Recipe deleted");
-      location.reload();
-    }).catch((response) => {
-      alert("Error");
+      method: "DELETE",
     })
+      .then(() => {
+        alert("Recipe deleted");
+        location.reload();
+      })
+      .catch(() => {
+        alert("Error");
+      });
   });
 });
