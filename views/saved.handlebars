@@ -1,8 +1,8 @@
 <div class="orangeBackground">
-  <div class="topTitle search desktop">Search for a Recipe</div>
+  <div class="topTitle search desktop">My Saved Recipes</div>
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#"><img class="avatar" src="./img/avatar.svg" height="40px" /></a>
-    <div class="search mobile">Search for a Recipe</div>
+    <div class="search mobile">My Saved Recipes</div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
       aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,63 +26,25 @@
 <div class="container">
   <div id="savedRecipes">
     {{#each recipes}}
-    <div class="card">
+    <div class="card saved-card">
       <div class="card-body">
-        <img class="card-image" src="{{this.image}}">
-        <div class="card-text recipe-name">{{this.label}}</div>
-        <div class="diet-labels">
-          {{#each this.dietLabels}}
-          <span class="badge badge-warning">{{this}}<Label}< /span>`
-              {{/each}}
-        </div>
+        <img class="card-image" src="{{this.Image}}">
+        <div class="card-text recipe-name">{{this.RecipeLabel}}</div>
         <div class="time">
           <span class="dot"></span>
-          {{this.totalTime}} minutes
+          {{this.PrepTime}} minutes
         </div>
         <div class="actions">
-          <button class="btn btn-warning showRecipe">Show Recipe</button>
-          <button class="btn btn-secondary saveBtn" data-id="{{this.id}}">
+          <button class="btn btn-secondary deleteBtn" data-id="{{this.id}}">
             <i class="fa fa-trash"></i>
           </button>
         </div>
         <div class="recipe-link">
-          <a href={{this.url}} target="_blank">Link to Recipe</a>
-        </div>
-        <div class="recipe-information">
-          <div class="ingredient-list">
-            {{#each this.ingredients}}
-            `<div class="ingredient">
-              <img class="ingredient-image" src="{{this.image}}" />
-              <span>{{this.text}}</span>
-            </div>`
-            {{/each}}
-          </div>
+          <a href={{RecipeUrl}} target="_blank">Link to Recipe</a>
         </div>
       </div>
     </div>
-    {{/each}}
   </div>
+  {{/each}}
 </div>
-
-<script type="text/javascript">
-  $(document).ready(() => {
-    $("img").on("error", function () {
-      $(this).css("visibility", "hidden");
-      $(this).css("width", "50px");
-      $(this).css("height", "50px");
-    });
-
-    $(".showRecipe").on("click", function () {
-      const recipeInfo = $(this)
-        .parent()
-        .siblings(".recipe-information");
-
-      if ($(this).text() === "Show Recipe") {
-        recipeInfo.slideDown();
-        $(this).text("Hide Recipe");
-      } else {
-        recipeInfo.slideUp();
-        $(this).text("Show Recipe");
-      }
-    });
-  });
+</div>

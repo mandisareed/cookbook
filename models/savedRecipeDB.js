@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 module.exports = function(sequelize, DataTypes) {
   const SavedRecipe = sequelize.define("SavedRecipe", {
-    RecipeUri: {
+    RecipeUrl: {
       type: DataTypes.TEXT,
       allowNull: false,
     },

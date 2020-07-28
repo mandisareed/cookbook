@@ -92,9 +92,9 @@ font-size: 1.5em;
   font-weight: 900;
   padding: 5px;
 }
-.btn{
-  margin-left: 50px;
-  margin-right: 50px;
+
+.saved-card{
+  margin-top: 10px;
 }
 
 /*Media Queries*/
@@ -110,4 +110,7 @@ font-size: 1.5em;
   .search{
     font-size: 2em;
   }
+  .saved-card{
+  margin-top: 10px;
+}
 }
