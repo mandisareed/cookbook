@@ -29,8 +29,13 @@ module.exports = function(app) {
   });
 
   app.get("/saved", isAuthenticated, (req, res) => {
+    if (!req.params.id) {
+      return res.status(401).end();
+    }
     axios
-      .get(`/api/saveRecipe/${req.user.id}`)
+      .get(
+        `https://still-sierra-23537.herokuapp.com/api/saveRecipe/${req.user.id}`
+      )
       .then(response => {
         console.log(response.data);
         res.render("saved", {
