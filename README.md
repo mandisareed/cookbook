@@ -1,25 +1,24 @@
 # CookBook
 
-
 The only recipe app you will ever need!
 
-  Description:
-  Our website lets you create a personalized user profile to find new recipes and save them to your favorites for easier access
-  
-  * Table of Contents:
-      * [Installation](#installation)
-      * [Usage](#usage)
-      * [License](#license)
-      * [Contributing](#contributing)
-      * [Technologies](#technologies)
-      * [Finished_Product](#finishedproduct)
-      * [Questions](#questions)
+Description:
+Our website lets you create a personalized user profile to find new recipes and save them to your favorites for easier access
 
-  ## Installation: 
+- Table of Contents:
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributing](#contributing)
+  - [Technologies](#technologies)
+  - [Finished_Product](#finishedproduct)
+  - [Questions](#questions)
 
-  Required Node Modules:
-  
-    axios 
+## Installation:
+
+Required Node Modules:
+
+    axios
     bcryptjs
     express
     express-handlebars
@@ -29,72 +28,84 @@ The only recipe app you will ever need!
     passport-local
     sequelize
 
-  This app is deployed through Heroku and can be accessed through this link: 
-  https://still-sierra-23537.herokuapp.com/  
+This app is deployed through Heroku and can be accessed through this link:
+https://still-sierra-23537.herokuapp.com/
 
-  Github:
-  https://github.com/mandisareed/project-2.git
-  ## Usage:
-  GIVEN a login page for the recipe finder app
+Github:
+https://github.com/mandisareed/project-2.git
 
-  The user  will be prompted for their email and password. 
+## Usage:
 
-  IF the user’s account exists then they will be able to access the landing page
+GIVEN a login page for the recipe finder app
 
-  IF not then they will be shown an error and prompted to create an account
+The user will be prompted for their email and password.
 
-  WHEN the landing page is displayed 
+IF the user’s account exists then they will be able to access the landing page
 
-  THEN the user can access previously built meals if they exist.
+IF not then they will be shown an error and prompted to create an account
 
-  WHEN the user starts a search 
+WHEN the landing page is displayed
 
-  THEN the user is presented with a list of recipes
+THEN the user can access previously built meals if they exist.
 
-  WHEN the user clicks the add button
+WHEN the user starts a search
 
-  THEN the recipe will be added to their saved recipes list
+THEN the user is presented with a list of recipes
 
-  WHEN the user clicks the view saved recipes button 
+WHEN the user clicks the add button
 
-  THEN they will see all of their saved recipes
+THEN the recipe will be added to their saved recipes list
 
+WHEN the user clicks the view saved recipes button
 
-  WHEN the user clicks delete on a recipe item, 
+THEN they will see all of their saved recipes
 
-  THEN their selected entry will be deleted
+WHEN the user clicks delete on a recipe item,
 
-  WHEN the user clicks logout
-  
-  THEN they will be logged out and taken back to the login page
+THEN their selected entry will be deleted
 
-  ## License: 
-  undefined
-  ## Contributing:
-  https://github.com/mandisareed
+WHEN the user clicks logout
 
-  https://github.com/tlam1288
+THEN they will be logged out and taken back to the login page
 
-  https://github.com/lindyem
+## License:
 
-  https://github.com/robertluttig
-  ## Technologies:
-  HTML + CSS + Javascript + Bootstrap +Sequelize + Passport + Handlebars + Express
+undefined
 
-  API used: Edamam
-  ## Finished_Product:
-  Sign up page Screenshot
-  ![](Assets/CookBookSignUp.JPG)
-  ## Questions:
+## Contributing:
 
-  Please reach out to either one of us for additional questions:
+https://github.com/mandisareed
 
-  robert.luttig@gmail.com
+https://github.com/tlam1288
 
-  mandisa.reed@gmail.com
+https://github.com/lindyem
 
-  tlam1288@gmail.com
+https://github.com/robertluttig
 
-  lindy.merwin@gmail.com
-  
+## Technologies:
 
+HTML + CSS + Javascript + Bootstrap +Sequelize + Passport + Handlebars + Express
+
+API used: Edamam
+
+## Finished_Product:
+
+Sign up page Screenshot
+![](Assets/CookBookSignUp.JPG)
+![](Assets/browserSearch.png)
+![](Assets/browserResult.png)
+![](Assets/mobileLogin.png)
+![](Assets/mobileSaved.png)
+![](Assets/mobileResult.png)
+
+## Questions:
+
+Please reach out to either one of us for additional questions:
+
+robert.luttig@gmail.com
+
+mandisa.reed@gmail.com
+
+tlam1288@gmail.com
+
+lindy.merwin@gmail.com
