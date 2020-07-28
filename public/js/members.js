@@ -98,12 +98,12 @@ $(document).ready(() => {
           }
         });
         $(".saveBtn").on("click", function() {
-          const recipeUrl = $(this).data("id");
+          const recipeUri = $(this).data("id");
           const recipeLabel = $(this).data("label");
           const recipeImage = $(this).data("image");
           const recipeTime = $(this).data("time");
           $.post("/api/saveRecipe", {
-            RecipeUrl: recipeUrl,
+            RecipeUri: recipeUri,
             RecipeLabel: recipeLabel,
             Image: recipeImage,
             PrepTime: recipeTime,
