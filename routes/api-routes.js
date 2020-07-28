@@ -54,7 +54,6 @@ module.exports = function(app) {
 
   //route for saving recipes
   app.post("/api/saveRecipe", (req, res) => {
-    console.log(req.body);
     if (!req.user) {
       return res.status(401).end();
     }
@@ -67,10 +66,8 @@ module.exports = function(app) {
     })
       .then((dbRecipe) => {
         res.json(dbRecipe);
-        console.log("saved to db");
       })
       .catch((err) => {
-        console.log(err);
         res.json(err);
       });
   });
@@ -86,10 +83,8 @@ module.exports = function(app) {
     })
       .then((dbRecipe) => {
         res.json(dbRecipe);
-        console.log("looking at db");
       })
       .catch((err) => {
-        console.log(err);
         res.json(err);
       });
   });
@@ -105,10 +100,8 @@ module.exports = function(app) {
     })
       .then((dbRecipe) => {
         res.json(dbRecipe);
-        console.log("deleting recipe db");
       })
       .catch((err) => {
-        console.log(err);
         res.json(err);
       });
   });
