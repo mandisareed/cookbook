@@ -10,13 +10,13 @@
     <div class="collapse navbar-collapse" id="navbarToggler">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home</a>
+          <a class="nav-link" href="/members">Home</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Saved <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/saved">Saved <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../public/login.html">Logout</a>
+          <a class="nav-link" href="/logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -32,8 +32,8 @@
         <div class="card-text recipe-name">{{this.label}}</div>
         <div class="diet-labels">
           {{#each this.dietLabels}}
-            <span class="badge badge-warning">{{this}}<Label}</span>`
-          {{/each}}
+          <span class="badge badge-warning">{{this}}<Label}< /span>`
+              {{/each}}
         </div>
         <div class="time">
           <span class="dot"></span>
@@ -52,10 +52,10 @@
           <div class="ingredient-list">
             {{#each this.ingredients}}
             `<div class="ingredient">
-              <img class="ingredient-image" src="{{this.image}}"/>
+              <img class="ingredient-image" src="{{this.image}}" />
               <span>{{this.text}}</span>
             </div>`
-          {{/each}}
+            {{/each}}
           </div>
         </div>
       </div>
@@ -66,23 +66,23 @@
 
 <script type="text/javascript">
   $(document).ready(() => {
-    $("img").on("error", function() {
+    $("img").on("error", function () {
       $(this).css("visibility", "hidden");
       $(this).css("width", "50px");
       $(this).css("height", "50px");
     });
 
-    $(".showRecipe").on("click", function() {
-          const recipeInfo = $(this)
-            .parent()
-            .siblings(".recipe-information");
+    $(".showRecipe").on("click", function () {
+      const recipeInfo = $(this)
+        .parent()
+        .siblings(".recipe-information");
 
-          if ($(this).text() === "Show Recipe") {
-            recipeInfo.slideDown();
-            $(this).text("Hide Recipe");
-          } else {
-            recipeInfo.slideUp();
-            $(this).text("Show Recipe");
-          }
-        });
+      if ($(this).text() === "Show Recipe") {
+        recipeInfo.slideDown();
+        $(this).text("Hide Recipe");
+      } else {
+        recipeInfo.slideUp();
+        $(this).text("Show Recipe");
+      }
+    });
   });
