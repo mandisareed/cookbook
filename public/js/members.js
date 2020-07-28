@@ -62,7 +62,7 @@ $(document).ready(() => {
                 <div class="actions">
                   <button class="btn btn-warning showRecipe">Show Recipe</button>
                   <button class="btn btn-secondary saveBtn" 
-                  data-id="${hit.recipe.uri}" 
+                  data-id="${hit.recipe.url}" 
                   data-label="${hit.recipe.label}" 
                   data-image="${hit.recipe.image}" 
                   data-time="${hit.recipe.totalTime}">
@@ -72,7 +72,7 @@ $(document).ready(() => {
                 </div>
                 <div class="recipe-link">
                   <a href=${hit.recipe.url} 
-                   target="_blank">Link to Recipe</a>
+                  target="_blank">Link to Recipe</a>
                 </div>
                 <div class="recipe-information">
                   <div class="ingredient-list">
@@ -98,18 +98,12 @@ $(document).ready(() => {
           }
         });
         $(".saveBtn").on("click", function() {
-          const recipeUri = $(this).data("id");
+          const recipeUrl = $(this).data("id");
           const recipeLabel = $(this).data("label");
           const recipeImage = $(this).data("image");
           const recipeTime = $(this).data("time");
-          //const UserId = $(this).data("user");
-          console.log(recipeUri);
-          console.log(recipeLabel);
-          console.log(recipeImage);
-          console.log(recipeTime);
-          // console.log(UserId);
           $.post("/api/saveRecipe", {
-            RecipeUri: recipeUri,
+            RecipeUrl: recipeUrl,
             RecipeLabel: recipeLabel,
             Image: recipeImage,
             PrepTime: recipeTime,

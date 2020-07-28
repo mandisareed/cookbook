@@ -55,16 +55,11 @@ module.exports = function(app) {
   //route for saving recipes
   app.post("/api/saveRecipe", (req, res) => {
     console.log(req.body);
-    console.log(req.user);
     if (!req.user) {
       return res.status(401).end();
     }
-    // console.log(req.body.recipeUri);
-    // console.log(req.body.recipeLabel);
-    // console.log(req.body.recipeImage);
-    // console.log(req.body.recipeTime);
     db.SavedRecipe.create({
-      RecipeUri: req.body.RecipeUri,
+      RecipeUrl: req.body.RecipeUrl,
       RecipeLabel: req.body.RecipeLabel,
       Image: req.body.Image,
       PrepTime: req.body.PrepTime,
@@ -80,13 +75,13 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/api/saveRecipe", (req, res) => {
-    if (!req.user.id) {
+  app.get("/api/saveRecipe/:id", (req, res) => {
+    if (!req.params.id) {
       return res.status(401).end();
     }
     db.SavedRecipe.findAll({
       where: {
-        UserId: req.user.id,
+        UserId: req.params.id,
       },
     })
       .then((dbRecipe) => {
