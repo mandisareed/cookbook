@@ -29,7 +29,7 @@ module.exports = function(app) {
   });
 
   app.get("/saved", isAuthenticated, (req, res) => {
-    if (!req.params.id) {
+    if (!req.user.id) {
       return res.status(401).end();
     }
     axios
