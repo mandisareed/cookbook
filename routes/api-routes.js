@@ -58,7 +58,7 @@ module.exports = function(app) {
       return res.status(401).end();
     }
     db.SavedRecipe.create({
-      RecipeUrl: req.body.RecipeUrl,
+      RecipeUri: req.body.RecipeUri,
       RecipeLabel: req.body.RecipeLabel,
       Image: req.body.Image,
       PrepTime: req.body.PrepTime,
