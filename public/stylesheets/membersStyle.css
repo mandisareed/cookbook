@@ -92,6 +92,10 @@ font-size: 1.5em;
   font-weight: 900;
   padding: 5px;
 }
+.btn{
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
 /*Media Queries*/
 @media (min-width: 992px) {
