@@ -19,8 +19,6 @@ $("#submit").on("click", (event) => {
     //location.reload();
   });
 
-
-
   // $.post("/api/recipe", newQuery).then((data) => {
   //   console.log(data);
 

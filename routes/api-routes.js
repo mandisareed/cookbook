@@ -93,4 +93,23 @@ module.exports = function(app) {
         res.json(err);
       });
   });
+
+  app.delete("/api/saveRecipe/:id", (req, res) => {
+    if (!req.params.id) {
+      return res.status(401).end();
+    }
+    db.SavedRecipe.destroy({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((dbRecipe) => {
+        res.json(dbRecipe);
+        console.log("deleting recipe db");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json(err);
+      });
+  });
 };

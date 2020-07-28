@@ -40,35 +40,11 @@
           </button>
         </div>
         <div class="recipe-link">
-          <a href={{RecipeUrl}} 
-          target="_blank">Link to Recipe</a>
-        </div>
+          <a href={{RecipeUrl}} target="_blank">Link to Recipe</a>
         </div>
       </div>
     </div>
-    {{/each}}
   </div>
+  {{/each}}
 </div>
-
-<script type="text/javascript">
-  $(document).ready(() => {
-    $("img").on("error", function () {
-      $(this).css("visibility", "hidden");
-      $(this).css("width", "50px");
-      $(this).css("height", "50px");
-    });
-
-    $(".deleteBtn").on("click", function () {
-      const recipeId = $(this).data('id');
-
-      $.ajax({
-        url: '/api/saveRecipe',
-        method: "DELETE"
-      }).then(function(response) {
-        alert('Recipe deleted');
-        location.reload();
-      }).catch(function(response){
-        alert('Error');
-      })
-    });
-  });
+</div>
